@@ -1,0 +1,123 @@
+:root{
+    --margin-title-feature_product : 5rem;
+}
+
+body{
+    font-family: 'Cabin', sans-serif;
+    background-color: #0f1114;
+}
+
+
+// ============================HomePage===============================
+.content{
+    margin-top: 6rem;
+}
+.slideshow_container{
+    margin: auto;
+    width: 100%;
+    position: relative;
+}
+.img_slidershow{
+    width: 100%;
+    height: 70vh;
+}
+img {
+    vertical-align: middle;
+}
+.title_featured_products{
+    display: block;
+}
+
+.title_featured_product>p{
+    margin-top: 2rem;
+    font-family: "Oswald", sans-serif;
+    font-size: 2rem;
+    margin-left: var(--margin-title-feature_product);
+    color: #ffffff;
+}
+.content>hr{
+    margin-top: 5px;
+    width: 30%;
+    margin-left: var(--margin-title-feature_product);
+}
+.featured_products{
+    display: block;
+    width: 96%;
+    margin: 2%;
+}
+.card_featured_product{
+    background-color: #ffffff;
+    display: inline-block;
+    border: none;
+    border-radius: 10px;
+    margin: 1%; 
+    padding: 1% 0 0 0;    
+    transition: 500ms;
+    box-shadow: rgba(167, 167, 167, 0.062) 0px 0px 16px;
+    &:hover{
+        box-shadow: rgba(170, 169, 169, 0.11) 0px 0px 16px;
+    }
+}
+.image_featured_product{
+    padding: 2px;
+}
+.img_featured_product{
+    height: 80%;
+    width: 100%;
+    transition: 200ms;
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+.img_featured_product_2{
+    height: 80%;
+    width: 100%;
+    transition: 200ms;
+    object-position: 150px 0;
+    filter: drop-shadow(0 0 5px white   );
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+.img_featured_product_3{
+    height: 80%;
+    width: 100%;
+    transition: 200ms;
+    object-position: 0px -10em;
+    &:hover{
+        transform: scale(1.02);
+    }
+}
+.title_{
+    color: white;
+    font-size: 2em;
+    
+}
+.featured_products>div>div>p{
+    color: white;
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+.detail_featured_product{
+    margin-top: 1rem;
+    text-align: center;
+    background-color: #0f0f0f;
+    border-radius: 0 0 5px 5px;
+    padding: 0.5rem 0;
+}
+.name_featured_product{
+    color: #ffffff;
+    font-family: "Oswald", sans-serif;
+    margin: 0 0 10px 0;
+}
+.price_featured_product{
+    color: red;
+    font-family: "Oswald", sans-serif;
+    margin-top: 2px;
+}
+
+@media only screen and (max-width:1024px){
+    .img_slidershow {
+        height: 50vh;
+    }
+}

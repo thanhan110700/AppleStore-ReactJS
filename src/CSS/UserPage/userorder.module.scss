@@ -1,0 +1,52 @@
+.option{
+    margin-left: 10px;
+}
+.tag_option{
+    text-align: center;
+    background-color: rgb(151, 151, 151);
+    padding: 0.8em 0;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(87, 90, 92);
+    }
+}
+.tag_option_choose{
+    background-color: rgb(87, 90, 92);
+    border-bottom: 2px solid rgb(117, 117, 216);
+}
+.list_item{
+    width: 90%;
+    margin-left: 2em;
+}
+.container_list{
+    background-color: rgb(29, 29, 29);
+    margin: 0.5em 2em;
+    padding:1em;
+}
+.txt_id_order{
+    font-size: 1.3em;
+}
+.txt_date_order{
+    margin-left: 2em;
+    font-size: 1em;
+}
+.btn_tag{
+    text-align: end;
+    margin-top: 1em;
+}
+.status{
+    text-align: end;
+}
+.btn_cancel{
+    border: none;
+    background-color: rgb(245, 49, 49);
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    color: white;
+    outline: none;
+}
+.note_product{
+    font-size: 0.7em;
+    color: #8b8e91;
+    text-align: end;
+}

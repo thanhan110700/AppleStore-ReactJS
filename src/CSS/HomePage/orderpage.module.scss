@@ -1,0 +1,35 @@
+.div_form_order{
+    width: 60%;
+    padding: 1% 0;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    border-radius: 5px;
+}
+.div_option{
+    margin: 2em 0 0 2em;
+}
+.input_address{
+    border: solid 1px rgb(207, 201, 201);
+    width: 70%;
+    outline: none;
+    padding-left: 1em;
+    height: 2em;
+    border-radius: 5px;
+    margin-left: 1em;
+}
+.btn_change_address{
+    padding: 0.2em;
+    margin-left: 1em;
+    border: solid 1px rgb(207, 201, 201);
+    border-radius: 5px;
+}
+.div_btn_order{
+    text-align: end;
+}
+.btn_order{
+    color: white;
+    background-color: rgb(61, 189, 61);
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    margin-right: 2em;
+}

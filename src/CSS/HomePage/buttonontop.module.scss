@@ -1,0 +1,28 @@
+.btn_on_top{
+
+    
+    display: none;
+    
+}
+.showBtn{
+    display: flex;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: rgb(44, 44, 44);
+}
+.icon_up{
+    color: rgb(121, 120, 120);
+    font-size: 3em;
+    margin: auto;
+    &:hover{
+        cursor: pointer;
+    }
+}
+@media screen and (max-width:1024px) {
+    .btn_on_top{
+        bottom: 4em;
+    }
+}

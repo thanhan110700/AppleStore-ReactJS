@@ -1,0 +1,59 @@
+.container{
+    display: flex;
+    background-color: #ffffff;
+}
+.left{
+    flex: 2;
+    display: block;
+    background-color: #e1f1f1;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 0px 8px;
+}
+.right{
+    flex: 11;
+}
+.tag_img_avatar{
+    padding: 0.5em 2em;
+    display: block;
+    margin-bottom: 2em;
+}
+.tag_title_header{
+    padding: 1em;
+    text-align: center;
+}
+.title_header{
+    font-family: 'Rubik Wet Paint', cursive;
+    font-size: 1.5em;
+}
+.img_avatar{
+    width: 30%;
+}
+
+.txt_nameadmin{
+    margin-left: 1em;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.tag_option >ul{
+    -webkit-user-select: none; 
+    list-style: none;
+    padding: 0;
+}
+.option{
+    font-size: 1em;
+    font-weight: 700;
+    background-color: #dfe6e9;
+    text-align: center;
+    padding: 1em 0;
+    cursor: pointer;
+    &:hover{
+        background-color: #b2bec3;
+    }
+}
+.option_active{
+
+    background-color: #b2bec3;
+}
+.btn_logout{
+    margin-top:6em;
+}

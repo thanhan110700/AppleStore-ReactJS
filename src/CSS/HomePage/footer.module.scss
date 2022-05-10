@@ -1,0 +1,39 @@
+
+.footer{
+    margin-top: 2rem;
+    height: 15rem;
+    background-color: #333;
+    display: block;
+    bottom: 0;
+}
+.logo_name{
+    font-family: 'Palette Mosaic', cursive;
+    color:#fff;
+    font-size: 3rem;
+}
+
+.footer_left{
+    width: 100%;
+    
+    text-align: center;
+}
+.footer_company_name{
+    font-family: 'Oswald', sans-serif;
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+.footer_links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+.footer_links_components{
+    font-family: 'Oswald', sans-serif;
+	display:inline;
+	line-height: 1.8;
+    margin: 0.5rem;
+	text-decoration: none;
+	color:  inherit;
+}

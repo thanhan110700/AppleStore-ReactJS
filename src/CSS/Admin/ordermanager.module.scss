@@ -1,0 +1,48 @@
+.tag_preview_product{
+    display: block;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #07070762;
+}
+.tag_container_product{
+    width: 70%;
+    padding: 0 2em 2em 0;
+   
+    margin: 2em 0 0 5em;
+    background-color: antiquewhite;
+}
+.show{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+.btn_close{
+    font-weight: 900;
+    color: red;
+    text-align: end;
+    cursor: pointer;
+}
+.tag_list_order{
+    width: 90%;
+    margin: 2em auto;
+}
+.tag_pick_date{
+    width: 80%;
+    margin: 2em auto;
+    text-align: center;
+}
+.input_pickdate{
+    border: 1px solid #949494;
+    padding: 0.2em 2em;
+    margin-right: 2em;
+    border-radius: 2em;
+}
+.tag_txt_filter{
+    margin-left: 2em;
+}
+.txt_filter{
+    display: inline;
+    font-size: 1.2em;
+}

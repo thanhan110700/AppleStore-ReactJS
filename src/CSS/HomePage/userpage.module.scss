@@ -1,0 +1,113 @@
+.content{
+    display: flex;
+}
+.left_content{
+    flex:2;
+    color: white;
+    background-color: #232324;
+    padding: 0;
+    height: 40em;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.right_content{
+    flex: 10;
+    color: white;
+}
+.img_tag{
+    width: 100%;
+    display: inline-block;
+    &:hover{
+        .change_avatar{
+            opacity: 1;
+        }
+    }
+}
+.change_avatar{
+    position: absolute;
+    width: 9.775%;
+    top: 13.15em;
+    left: 8.79em;
+    height: 4em;
+    background-image: linear-gradient( 0deg,rgba(22, 21, 21, 0.795) ,rgba(95, 94, 94, 0) );;
+    border-radius: 0 0 100em 100em;
+    opacity: 0;
+    transition-duration: 200ms;
+    cursor: pointer;
+}
+
+.icon_camera{
+    font-size: 3em;
+}
+.img_avatar{
+    display: block;
+    border-radius: 100em;
+    width: 70%;
+    margin: 1em auto;
+    
+}
+.fullname{
+    font-size: 2em;
+}
+.menubar_left{
+}
+.menubar_left > .select_left{
+    display: block;
+    padding: 0.5em 0em;
+    width: 100%;
+    color: white;
+    background-color: #2b2e2e;
+    cursor: pointer;
+    &:hover{
+        background-color: #3e4141;
+    }
+}
+.select_option_choose{
+    background-color: #3e4141 !important;
+}
+.menubar_left > .select_left_active{
+    background-color: #535353;
+}
+.transfer_mobile_app{
+    display: none;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .content{
+        margin-top: -2em;
+        display: block;
+    }
+    .left_content{
+        display: flex;
+        height: auto;
+    }
+    .img_tag{
+        flex: 1;
+    }
+    .fullname{
+        flex:3;
+        font-size: 3em;
+        
+    }
+    .menubar_left{
+        display: none;
+    }
+    .right_content{
+        display: none;
+    }
+    .transfer_mobile_app{
+        margin-top: 5em;
+        display: block;
+        color: white;
+        text-align: center;
+        height: 10em;
+    }
+    .btn_transfer{
+        padding: 1em 2em;
+        background: none;
+        color: white;
+        border: 1px solid rgb(131, 131, 131);
+    }
+}

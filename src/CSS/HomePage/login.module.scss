@@ -1,0 +1,86 @@
+.content_right{
+    padding:2%;
+}
+.img_right{
+    width: 90%;
+    height: 80%;
+}
+.content_left{
+    text-align: center;
+}
+.title_login{
+    color: white;
+    font-size: 2rem;
+}
+.form_login{
+    margin-top: 2%;
+    padding: 2rem;
+}
+form{
+    margin-top: 2rem;
+}
+.input_login{
+    
+    background:none;
+    border: none;
+    border-bottom: solid 1px white;
+    outline: none;
+    
+    width: 80%;
+    height: 2.5rem;
+    padding-left: 1rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+.alert_message{
+    color: #DB4437;
+}
+.btn_login{
+    height: 3rem;
+    width: 50%;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    font-weight: 800;
+}
+.tag_loginwith{
+    margin-top: 1em;
+    
+}
+.btn_loginwith{
+    padding: 0 2em 0 0 ;
+    border: none;
+    border-radius: 2px;
+    font-size: 0.8em;
+    font-weight: 800;
+}
+.btn_loginwithFB{
+    background-color: #4267B2;
+}
+.btn_loginwithGG{
+    background-color: #DB4437;
+}
+.btn_loginwithGG>.icon_loginwith{
+    margin: 0 0.35em 0 0.05em;
+}
+.btn_loginwith >span{
+    margin-left: 2em;
+    color: white;
+}
+.icon_loginwith{
+    color: white;
+    font-size: 2.5em;
+    display: inline;
+}
+@media screen and (max-width:1024px) {
+    .img_right{
+        width: 100%;
+        height: 100%;
+    }
+    .btn_loginwith >span{
+        font-size: 0.8em;
+    }
+    .btn_loginwithGG>.icon_loginwith{
+        margin: 0 0.17em;
+    }
+}

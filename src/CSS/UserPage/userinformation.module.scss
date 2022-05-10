@@ -1,0 +1,97 @@
+.container{
+    padding-left: 2em;
+    color: white;
+}
+.title_tag{
+    font-size: 1.5em;
+}
+.title_little{
+    font-size: 0.8em;
+    margin-bottom: 3em;
+}
+.tag_change_pass{
+    display: block;
+    top:0;
+    left: 0;
+    position: fixed;
+    background-color: #232324c4;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000000000000000000000;
+    display: none;
+}
+.div_change_pass{
+    margin: 5em auto;
+    padding: 2em 0;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width: 20em;
+    background-color: #424242;
+    text-align: center;
+    border-radius: 5px;
+}
+.btn_cancel_tag_change{
+    position: fixed;
+    top: 4.2em;
+    left: 51.7em;
+}
+.icon_cancel{
+    font-size: 1.5em;
+    cursor: pointer;
+}
+.input_change_pass{
+    background: none;
+    border: 1px solid rgb(92, 91, 91);
+    margin-top: 1em;
+    border-radius: 5px;
+    width: 80%;
+    outline: none;
+    color: white;
+    padding: 0.5em 1em;
+}
+.text_change_pass{
+    font-size: 1.5em;
+}
+.text_input{
+    text-align: end;
+}
+.margin_top_1em{
+    margin-top: 1em;
+}
+.change_avatar_tag{
+    background-color: aqua;
+}
+.btn_change{
+    background: none;
+    border: 1px solid #575757;
+    border-radius: 5px;
+    color: white;
+    height: 2.5em;
+    padding: 0 1em;
+    margin-bottom: 1.5rem;
+}
+.message_alert{
+    margin-left: 2em;
+    
+}
+.display_show{
+    display: block;
+}
+.input_gender{
+    margin-bottom: 1.5em;
+}
+.input_tranf{
+    background:none;
+
+    border: solid 1px #575757;
+    outline: none;
+    height: 2.5em;
+    border-radius: 5px;
+    width: 70%;
+    padding-left: .5rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    &:focus{
+        transition-duration: 100ms;
+        border-bottom: solid 2px white;
+    }
+}
