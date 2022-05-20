@@ -10,8 +10,7 @@ function IphonePage(){
     const [featuredproductList,setList] = useState([])
 
     useEffect(()=>{
-        async function getData(){
-            await axios.get('http://localhost:3000/api/iphone/')
+        axios.get('http://localhost:3000/api/iphone/')
             .then(function (response) {
             // handle success
                 setList(response.data)
@@ -20,8 +19,6 @@ function IphonePage(){
             // handle error
             console.log(error);
             })
-        } 
-        getData()
     },[])
     console.log(featuredproductList)
             

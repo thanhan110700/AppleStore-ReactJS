@@ -10,7 +10,7 @@ function TBodyTable({data,index}) {
     const handleDeleteProduct = () =>{
         var check = window.confirm("Bạn có muốn xóa sản phẩm ",data.name," không ?")
         if(check){
-            axios.post("http://localhost:3000/api/deleteProduct/",{id:data._id})
+            axios.post("http://localhost:3000/api/deleteProduct/",{id:data._id,token:localStorage.getItem('token')})
             .then((response)=>{
                 console.log(response)
             })

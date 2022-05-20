@@ -75,7 +75,8 @@ function ChangeProduct({id}) {
             pin:dataProduct.pin,
             type:type,
             images:dataProduct.listImage,
-            description:description,})
+            description:description,
+            token:localStorage.getItem("token")})
         .then(function (response){
             console.log("update ok")       
         })
