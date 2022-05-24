@@ -17,13 +17,12 @@ function DetailProductPage(props){
     const [choosingMemory,setChoosingMemory] = useState('')
     const [choosingColor,setChoosingColor] = useState('')
     const [choosingPrice,setChoosingPrice] = useState(0)
+    
     const [hiddenDescription,sethiddenDescription] = useState(true)
     const [listImg,setListImg] = useState([])
     useEffect(()=>{
         axios.get('http://localhost:3000/api/iphone/'+id)
             .then(function (response) {
-            // handle success
-            
                 const data = response.data
                 setChoosingColor(data.type[0].color[0])
                 setChoosingMemory(data.type[0].memory)
@@ -34,8 +33,7 @@ function DetailProductPage(props){
             .catch(function (error) {
             // handle error
             console.log(error);
-            })
-       
+            })       
     },[])
     const OptionVersionColor = ({data}) => {
         return <>
@@ -88,7 +86,7 @@ function DetailProductPage(props){
             </Col>
             <Col lg={6} className={style.option_tag}>
                 <p className={style.name_product_detail}>{detail.name}</p>
-                <p className={style.price_product_detail}>Giá: {choosingPrice} VNĐ</p>
+                <p className={style.price_product_detail}>Giá: {parseInt(choosingPrice).toLocaleString()} VNĐ</p>
                 <div className={style.margin_bottom_detail}>
                     {
                         detail.type && detail.type.map((t,index) => 

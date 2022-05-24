@@ -8,7 +8,8 @@ import {RiAddCircleLine} from 'react-icons/ri'
 import clsx from 'clsx';
 import axios from 'axios';
 function AddProduct() {
-    const [name,setName] = useState("")
+    
+    const [name,setName] = useState("") 
     const [display,setDisplay] = useState("")
     const [os,setOs] = useState("")
     const [chip,setChip] = useState("")
@@ -35,7 +36,7 @@ function AddProduct() {
            type.push({color:listColor,memory:data.memory,price:data.price})
         )
         console.log(type)
-        axios.post("http://localhost:3000/api/addproduct/",{name,display,os,chip,frontcamera:frontCamera,backcamera:backCamera,ram,sim,pin,type:type,images:listImage,description,view:0,sale:100,token:localStorage.getItem('token')})
+        axios.post("http://localhost:3000/api/addproduct/",{name,display,os,chip,frontcamera:frontCamera,backcamera:backCamera,ram,sim,pin,type:type,images:listImage,description,view:0,sale:100,token:localStorage.getItem('token ')})
         .then(function (response){
             console.log("update ok")
             setName("")

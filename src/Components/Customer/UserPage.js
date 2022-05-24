@@ -47,7 +47,6 @@ function UserPage(){
                             <p><AiOutlineCamera className={style.icon_camera}/></p>
                         </div>
                     </div>
-                    
                     <div className={style.fullname}>{userData.fullname}</div>
                     <div className={style.menubar_left}>
                         <div className={clsx(style.select_left,selectOption === 'account'? style.select_option_choose :"")} onClick={()=>setSelectOption("account")} >Quản lý tài khoản</div>

@@ -3,16 +3,27 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../../CSS/Admin/usermanager.module.scss'
 function UserManager() {
     const [listUser,setListUser] = useState([])
+    const [listOrder,setListOrder] = useState([])
     useEffect(()=>{
         axios.get("http://localhost:3000/api/getAllUser",
-        {
-            headers:{
-                token:localStorage.getItem('token')
-            }
-        })
-        .then(response =>{
-            setListUser(response.data)
-        })
+            {
+                headers:{
+                    token:localStorage.getItem('token')
+                }
+            })
+            .then(response =>{
+                setListUser(response.data)
+            })
+        axios.get('http://localhost:3000/api/listOrder/',
+            {
+                headers:{
+                    token:localStorage.getItem('token')
+                }
+            })
+            .then(function (response) {
+                console.log(response.data);
+                setListOrder(response.data)
+            })
     },[])
     console.log("first",listUser)
     return ( <>
@@ -20,22 +31,34 @@ function UserManager() {
         <table>
             <thead>
                 <tr>
-                    <th>
+                    <th
+                        className={styles.column_number}
+                    >
                         STT
                     </th>
-                    <th>
+                    <th
+                        className={styles.column_avatar}
+                    >
                         Avatar
                     </th>
-                    <th>
+                    <th
+                        className={styles.column_username}
+                    >
                         Tên khách hàng
                     </th>
-                    <th>
+                    <th
+                        className={styles.column_inforUser}
+                    >
                         Thông tin khách hàng
                     </th>
-                    <th>
+                    <th
+                        className={styles.column_totalOrder}
+                    >
                         Tổng số đơn hàng
                     </th>
-                    <th>
+                    <th
+                        className={styles.column_amountOrder}
+                    >
                         Tổng giá trị đơn hàng
                     </th>
                 </tr>
@@ -47,7 +70,10 @@ function UserManager() {
                                 {index+1}
                             </td>
                             <td>
-                                <img src='' />
+                                <img 
+                                    src={data.avatar} 
+                                    alt={index} 
+                                    className={styles.img_avatar}/>
                             </td>
                             <td>
                                 {data.fullname}
@@ -81,6 +107,19 @@ function UserManager() {
                                         </ul>
                                     </div>
                                 </div>
+                            </td>
+                            <td>
+                                {(listOrder.filter(e => 
+                                    {
+                                        return e.idUser === data._id
+                                    })).length}
+                            </td>
+                            <td>
+                                {listOrder.filter(e => 
+                                    {
+                                        return e.idUser === data._id
+                                                && e.status === 4
+                                    }).reduce((partialSum, a) => partialSum + parseInt(a.total),0).toLocaleString()} VNĐ
                             </td>
                         </tr>
                 })}

@@ -1,4 +1,4 @@
-import React,{useEffect, useState,memo} from 'react';
+import React,{useLayoutEffect, useState,memo} from 'react';
 import {TiDeleteOutline} from 'react-icons/ti'
 import {Container, Row, Col} from 'react-bootstrap'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -9,27 +9,9 @@ import clsx from 'clsx';
 import axios from 'axios';
 function ChangeProduct({id}) {
     const [description,setDescription] = useState("")
-    const [dataProduct,setDataProduct] = useState({
-        name:"",
-        display:"",
-        os:"",
-        chip:"",
-        frontcamera:"",
-        backcamera:"",
-        ram:"",
-        sim:"",
-        pin:"",
-        color:"",
-        listColor:[],
-        memory:"",
-        price:"",
-        listType:[],
-        image:"",
-        listImage:[],
-        description:description,
-    })
+    const [dataProduct,setDataProduct] = useState({})
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         axios.get('http://localhost:3000/api/iphone/'+id)
         .then(function (response) {
             // handle success
@@ -55,13 +37,10 @@ function ChangeProduct({id}) {
     },[])
 
     const handleBtnChangeProduct = () =>{
-
         const type = dataProduct.listType
-
         type.map(data =>{
             return data.color = dataProduct.listColor
         })
-
         axios.post("http://localhost:3000/api/changeProduct/",{
             id:id,
             name:dataProduct.name,
@@ -85,6 +64,7 @@ function ChangeProduct({id}) {
         })
         
     }
+    console.log(dataProduct.listColor);
     return (<>
     <div className={styles.tag_container_add_product}>
         <div  className={styles.tag_add_product}>
@@ -147,7 +127,7 @@ function ChangeProduct({id}) {
                                     onClick={()=>{
                                         setDataProduct({...dataProduct,listColor:dataProduct.listColor.push(dataProduct.color)})
                                         setDataProduct({...dataProduct,color:""})}}/>
-                                {dataProduct.listColor.map((data,index) =>{
+                                {dataProduct.listColor && dataProduct.listColor.map((data,index) =>{
                                     return <div key={index}>
                                             <span>{data}</span>&nbsp;&nbsp;
                                             <TiDeleteOutline 
@@ -175,16 +155,23 @@ function ChangeProduct({id}) {
                                     setDataProduct({...dataProduct,image:''})
                                 }}  />
                         <div className={styles.margin_top}>
-                        {dataProduct.listImage.map((data,index) =>{
-                                return <div key={index} className={styles.tag_list_img}>
+                            {dataProduct.listImage && dataProduct.listImage.map((data,index) =>{
+                                return ( 
+                                    <div key={index} className={styles.tag_list_img}>
                                         <img src={data} alt='' className={styles.list_img}  />&nbsp;
                                         <TiDeleteOutline
                                             className={styles.icon_add_remove}
                                             onClick={()=>{
-                                            setDataProduct({...dataProduct,listImage:dataProduct.listImage.filter(e => {return e!== data})})
+                                            setDataProduct({
+                                                ...dataProduct,
+                                                listImage:dataProduct.listImage.filter(e => {
+                                                    return e!== data
+                                                    })
+                                                })
                                         }} />
                                     </div>
-                                })}
+                                )
+                            })}
                         </div>
                     </Col>
                 </Row>
@@ -214,7 +201,7 @@ function ChangeProduct({id}) {
                                 setDataProduct({...dataProduct,memory:''})
                                 setDataProduct({...dataProduct,price:''})}}/>
                         <div>
-                        {dataProduct.listType.map((data,index) =>{
+                        {dataProduct.listType && dataProduct.listType.map((data,index) =>{
                             return <div key={index}>
                                 <span>[{data.memory},{data.price}]</span>
                                 <TiDeleteOutline
