@@ -1,72 +1,70 @@
-.container_register{
-    display: block;
+.container_register {
+  display: block;
 
-    text-align: center;
+  text-align: center;
 }
-.content_middle{
-    margin: auto;
-    width: 40em;
+.content_middle {
+  margin: auto;
+  width: 40em;
 }
-.container_register >.content_middle>form{
-    margin: auto;
-    width: 80%;
-    color: rgb(211, 205, 205);
+.container_register > .content_middle > form {
+  margin: auto;
+  width: 80%;
+  color: rgb(211, 205, 205);
 }
-.title_register{
-    color: white;
-    font-size: 2em;
-    font-weight: 500;
+.title_register {
+  color: white;
+  font-size: 2em;
+  font-weight: 500;
 }
-.input_register{
-    width: 80%;
-    margin: 1em 0 0 0;
-    background:none;
-    border: none;
-    border-bottom: solid 1px #3b3939;
-    outline: none;
-    padding-left: 1rem;
-    color: white;
-    margin-bottom: 2rem;
-    transition: 150ms;
-    &:focus{
-        border-bottom: solid 2px white;
-        
-    }
+.input_register {
+  width: 80%;
+  margin: 2em 0 0 0;
+  background: none;
+  border: none;
+  border-bottom: solid 1px #3b3939;
+  outline: none;
+  padding: 0.2em 0 0.1em 1em;
+  color: white;
+  transition: 150ms;
+  &:focus {
+    border-bottom: solid 2px white;
+  }
 }
-.input_name{
-    width: 37%;
+.input_gender {
+  width: 80%;
 }
-.space_input_name{
-    display: inline-block;
-    width: 2em;
+.input_gender > input {
+  margin-left: 2em;
 }
-.input_gender{
-    width: 80%;
+.txt_error{
+    margin-top: 0.5em;
+    font-size: 10px;
+    color: rgb(253, 34, 34);
+    
 }
-.input_gender>input{
-    margin-left: 2em;
+.btn_register {
+    margin-top: 1em;
+  height: 3rem;
+  width: 50%;
+  background-color: white;
+  border: none;
+  color: black;
+  font-weight: 900;
+  border-radius: 2px;
+  box-shadow: #f3f3f734 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
-.btn_register{
-    height: 3rem;
-    width: 50%;
-    background-color: white;
-    border: none;
-    font-weight: 900;
-    border-radius: 2px;
-    box-shadow: #f3f3f734 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-}
-@media screen and (max-width:1024px) {
-    .content_middle{
-        
-        width: 23em;
-    }
-    .input_register{
-        width: 100%;
-    }
-    .input_gender{
-        font-size: 0.7em;
-    }
-    .space_input_name{
-        width: 0;
-    }
+@media screen and (max-width: 1024px) {
+  .content_middle {
+    width: 23em;
+  }
+  .input_register {
+    width: 100%;
+  }
+  .input_gender {
+    font-size: 0.7em;
+  }
+  .space_input_name {
+    width: 0;
+  }
 }
