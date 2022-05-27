@@ -1,14 +1,15 @@
 import axios from "axios";
 import clsx from "clsx";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import style from '../../../CSS/UserPage/userorder.module.scss'
 import ListOrder from "../General/ListOrder";
+import {useSelector } from "react-redux"
 function UserOrder() {
+    const isChange = useSelector(state => state.product.isChange)
     const [chooseOption, setChooseOption] = useState("all")
     const [listAllOrder, setListAllOrder] = useState([])
     const [listOrder, setListOrder] = useState([])
-    const [a, seta] = useState(0)
     useEffect(() => {
         axios.get('http://localhost:3000/api/getOrderUser/' + localStorage.getItem('id_user'),
             {
@@ -28,7 +29,7 @@ function UserOrder() {
                 // handle error
                 console.log(error);
             })
-    }, [a])
+    }, [isChange])
     const handleChangeOption = (value) => {
         setChooseOption(value)
         if (value === "all") {
@@ -62,21 +63,6 @@ function UserOrder() {
     }
 
     console.log("alo", listOrder)
-    const handleCancelOrder = (id) => {
-        console.log("alo")
-        axios.post("http://localhost:3000/api/cancelOrder/", {
-            id: id,
-            token: localStorage.getItem("token")
-        })
-            .then((response) => {
-                seta(a + 1)
-
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-    }
     return <>
         <Container>
             <Row className={style.option}>
@@ -102,44 +88,19 @@ function UserOrder() {
             <Row>
                 <Col>
                     {chooseOption === "all" ? listOrder.map((data, index) => {
-                        return <div key={index}>
-                            <ListOrder value={data} />
-                            <button onClick={() => handleCancelOrder(data._id)} className={style.btn_cancel}>
-                                Hủy đơn hàng
-                            </button>
-                        </div>
+                        return <ListOrder key={index} value={data} />
                     }) : ""}
                     {chooseOption === "waitconfirm" ? listOrder.map((data, index) => {
-                        return <div key={index}>
-                            <ListOrder value={data} />
-                            <button onClick={() => handleCancelOrder(data._id)} className={style.btn_cancel}>
-                                Hủy đơn hàng
-                            </button>
-                        </div>
+                        return <ListOrder key={index} value={data} />
                     }) : ""}
                     {chooseOption === "waitpickup" ? listOrder.map((data, index) => {
-                        return <div key={index}>
-                            <ListOrder value={data} />
-                            <button onClick={() => handleCancelOrder(data._id)} className={style.btn_cancel}>
-                                Hủy đơn hàng
-                            </button>
-                        </div>
+                        return <ListOrder key={index} value={data} />
                     }) : ""}
                     {chooseOption === "delivery" ? listOrder.map((data, index) => {
-                        return <div key={index}>
-                            <ListOrder value={data} />
-                            <button onClick={() => handleCancelOrder(data._id)} className={style.btn_cancel}>
-                                Hủy đơn hàng
-                            </button>
-                        </div>
+                        return <ListOrder key={index} value={data} />
                     }) : ""}
                     {chooseOption === "delivered" ? listOrder.map((data, index) => {
-                        return <div key={index}>
-                            <ListOrder value={data} />
-                            <button onClick={() => handleCancelOrder(data._id)} className={style.btn_cancel}>
-                                Hủy đơn hàng
-                            </button>
-                        </div>
+                        return <ListOrder key={index} value={data} />
                     }) : ""}
                     {chooseOption === "cancelled" ? listOrder.map((data, index) => {
                         return <ListOrder value={data} key={index} />

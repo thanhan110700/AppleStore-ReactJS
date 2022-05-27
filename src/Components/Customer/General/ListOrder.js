@@ -2,15 +2,18 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import style from '../../../CSS/UserPage/userorder.module.scss'
 import ItemOrder from '../UserPage/ItemOrder';
 import axios from 'axios'
-function ListOrder({ value }) {
+import { useDispatch } from 'react-redux'
+import { changeStatus} from '../../../store/actions/productActions'
+function ListOrder({ value, isCancel }) {
     const [listProduct, setListProduct] = useState([])
-
+    const dispatch = useDispatch()
     useLayoutEffect(() => {
         console.log(listProduct)
         setListProduct(value.detail)
     }, [value])
 
     const handleCancelOrder = () => {
+
         console.log("alo")
         axios.post("http://localhost:3000/api/cancelOrder/", {
             id: value._id,
@@ -18,6 +21,7 @@ function ListOrder({ value }) {
         })
             .then((response) => {
                 console.log(response);
+                dispatch(changeStatus())
             })
             .catch(function (error) {
                 // handle error
@@ -50,9 +54,15 @@ function ListOrder({ value }) {
                 {(value.status === 5 ? "Đã hủy" : "")}
 
             </div>
-            <div className={style.btn_tag}>
-
-            </div>
+            {value.status === 1 || value.status === 2 || value.status === 3
+                ? <div className={style.btn_tag}>
+                    <button
+                        onClick={() =>
+                            handleCancelOrder(value._id)}
+                        className={style.btn_cancel}>
+                        Hủy đơn hàng
+                    </button>
+                </div> : ""}
         </div>
     </>);
 }

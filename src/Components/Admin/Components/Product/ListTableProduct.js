@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import styles from '../../../../CSS/Admin/productmanager.module.scss'
 import { RiDeleteBin7Fill } from 'react-icons/ri'
 import { FaWrench } from 'react-icons/fa'
 import clsx from 'clsx';
 import ChangeProduct from './ChangeProduct';
 import axios from 'axios';
-
+import {useDispatch} from 'react-redux'
+import {changeStatus} from '../../../../store/actions/productActions'
 function TBodyTable({ data, index }) {
+    const dispatch = useDispatch()
     const handleDeleteProduct = () => {
         var check = window.confirm("Bạn có muốn xóa sản phẩm ", data.name, " không ?")
         if (check) {
@@ -15,6 +17,7 @@ function TBodyTable({ data, index }) {
             })
                 .then((response) => {
                     console.log(response)
+                    dispatch(changeStatus())
                 })
                 .catch((err) => {
                     console.log(err)
@@ -60,12 +63,8 @@ function TBodyTable({ data, index }) {
                 </li>
 
             </td>
-            <td className={styles.table_option}>
-                <button onClick={() => setChangeProduct(true)}
-                    className={clsx(styles.btn_fix, styles.btn_product)}>
-                    <FaWrench />
-                </button>
 
+            <td className={styles.table_option}>
                 {changeProduct
                     ? <>
                         <button
@@ -79,18 +78,24 @@ function TBodyTable({ data, index }) {
                             key={data._id} />
                     </>
                     : null}
+                <button onClick={() => setChangeProduct(true)}
+                    className={clsx(styles.btn_fix, styles.btn_product)}>
+                    <FaWrench className={styles.btn_icons} />
+                </button>
                 <button
-                    onClick={() =>
-                        handleDeleteProduct()}
-                    className={clsx(styles.btn_remove, styles.btn_product)}
-                >
-                    <RiDeleteBin7Fill />
+                    onClick={handleDeleteProduct}
+                    className={clsx(styles.btn_remove, styles.btn_product)}>
+                    <RiDeleteBin7Fill className={styles.btn_icons} />
                 </button>
             </td>
         </tr>
     </>)
 }
 function ListTableProduct({ list }) {
+    const [products,setProducts] = useState(list)
+    useLayoutEffect(()=>{
+        setProducts(list)
+    },[list])
     console.log("list", list)
     return <>
         {list.map((data, index) => {

@@ -1,22 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React from "react";
 import { Col, Row } from "reactstrap";
 import style from '../../../CSS/UserPage/itemorder.module.scss'
-function ItemOrder({data}){
-    const [detail,setDetail] = useState([])
-    useEffect(()=>{
-        axios.get('http://localhost:3000/api/iphone/'+data.id_product)
-        .then(function (response) {
-        // handle success
-        console.log("first",response.data)
-            setDetail(response.data)
-        })
-        .catch(function (error) {
-        // handle error
-            console.log(error);
-        })
-    },[data])
-    console.log("data",data)
+function ItemOrder({ data }) {
+    
+    console.log("data", data)
     return <>
         <div className={style.card_product_order}>
             <Row>
@@ -34,11 +21,8 @@ function ItemOrder({data}){
                         Số lượng: {data.amount}
                     </div>
                     <div className={style.price_product}>
-                       Giá: {data.price} VNĐ
+                        Giá: {parseInt(data.price).toLocaleString()} VNĐ
                     </div>
-
-                    
-                    
                 </Col>
             </Row>
         </div>

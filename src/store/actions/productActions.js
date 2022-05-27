@@ -1,14 +1,7 @@
-const changeColor = (data) =>{
+const changeStatus = () =>{
     return {
-        type:"CHANGE_COLOR",
-        payload:data
+        type:"CHANGE_STATUS",
+        
     }
 }
-const changeMemory = (data) =>{
-    return {
-        type:"CHANGE_MEMORY",
-        payload:data
-    }
-}
-
-export default {changeColor,changeMemory}
+export {changeStatus}

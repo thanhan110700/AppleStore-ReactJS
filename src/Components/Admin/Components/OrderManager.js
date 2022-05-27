@@ -23,42 +23,21 @@ function OrderManager() {
             .then(response => {
                 console.log("first", response.data)
                 setListOrder(response.data)
+
                 if (optionFilter === 0) {
                     console.log("alo")
                     setListPresent(response.data)
                 }
-                if (optionFilter === 1) {
+                else {
+                    setListPresent(listOrder.filter((value) => {
+                        return value.status === optionFilter
+                    }))
+                }
 
-                    setListPresent(listOrder.filter((value) => {
-                        return value.status === optionFilter
-                    }))
-                }
-                if (optionFilter === 2) {
-                    console.log("first")
-                    setListPresent(listOrder.filter((value) => {
-                        return value.status === optionFilter
-                    }))
-                }
-                if (optionFilter === 3) {
-                    setListPresent(listOrder.filter((value) => {
-                        return value.status === optionFilter
-                    }))
-                }
-                if (optionFilter === 4) {
-                    setListPresent(listOrder.filter((value) => {
-                        return value.status === optionFilter
-                    }))
-                }
-                if (optionFilter === 5) {
-                    setListPresent(listOrder.filter((value) => {
-                        return value.status === optionFilter
-                    }))
-                }
             })
     }, [reset])
 
     const hanldeChangeList = (e) => {
-
         setOptionFilter(parseInt(e))
         setReset(reset + 1)
     }
@@ -175,7 +154,7 @@ function OrderManager() {
                                 >Xem</button>
                             </td>
                             <td>
-                                {data.total}
+                                {parseInt(data.total).toLocaleString()}
                             </td>
                             <td>
                                 {data.createAt.slice(11, 19)

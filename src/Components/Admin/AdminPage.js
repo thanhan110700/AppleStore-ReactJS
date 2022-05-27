@@ -18,63 +18,63 @@ function AdminPage() {
                     <p className={styles.title_header}>ADMIN PAGE</p>
                 </div>
                 <div className={styles.tag_img_avatar}>
-                    <img className={styles.img_avatar} src="https://www.clipartmax.com/png/full/319-3191274_male-avatar-admin-profile.png" alt=''/>
+                    <img className={styles.img_avatar} src="https://www.clipartmax.com/png/full/319-3191274_male-avatar-admin-profile.png" alt='' />
                     <span className={styles.txt_nameadmin}>Admin</span>
                 </div>
                 <div className={styles.tag_option}>
                     <ul>
-                        <li 
+                        <li
                             className={
                                 clsx(styles.option,
-                                     activeOption===0?
-                                     styles.option_active:'')
-                                     }
-                            onClick={()=>setActiveOption(0)}
+                                    activeOption === 0 ?
+                                        styles.option_active : '')
+                            }
+                            onClick={() => setActiveOption(0)}
                         >
                             Trang chủ
                         </li>
-                        <li 
+                        <li
                             className={
                                 clsx(styles.option,
-                                     activeOption===1?
-                                     styles.option_active:'')
-                                     }
-                            onClick={()=>setActiveOption(1)}
+                                    activeOption === 1 ?
+                                        styles.option_active : '')
+                            }
+                            onClick={() => setActiveOption(1)}
                         >
                             Quản lý sản phẩm
                         </li>
-                        <li 
+                        <li
                             className={
                                 clsx(styles.option,
-                                     activeOption===2?
-                                     styles.option_active:'')
-                                     }
-                            onClick={()=>setActiveOption(2)}
+                                    activeOption === 2 ?
+                                        styles.option_active : '')
+                            }
+                            onClick={() => setActiveOption(2)}
                         >
                             Quản lý người dùng
                         </li>
-                        <li 
+                        <li
                             className={
                                 clsx(styles.option,
-                                     activeOption===3?
-                                     styles.option_active:'')
-                                     }
-                            onClick={()=>setActiveOption(3)}
+                                    activeOption === 3 ?
+                                        styles.option_active : '')
+                            }
+                            onClick={() => setActiveOption(3)}
                         >
                             Quản lý đơn hàng
                         </li>
-                        <li 
+                        <li
                             className={
                                 clsx(styles.option,
-                                     activeOption===4?
-                                     styles.option_active:'')
-                                     }
-                            onClick={()=>setActiveOption(4)}
+                                    activeOption === 4 ?
+                                        styles.option_active : '')
+                            }
+                            onClick={() => setActiveOption(4)}
                         >
                             Quản lý Doanh thu
                         </li>
-                        <li className={clsx(styles.option,styles.btn_logout)}
-                            onClick={()=>{
+                        <li className={clsx(styles.option, styles.btn_logout)}
+                            onClick={() => {
                                 localStorage.removeItem('token')
                                 localStorage.removeItem('id_user')
                                 navigate("/")
@@ -86,14 +86,14 @@ function AdminPage() {
                 </div>
             </div>
             <div className={styles.right}>
-                {activeOption===0 && <AdminHomePage />}
-                {activeOption===1 && <ProductManager />}
-                {activeOption===2 && <UserManager />}
-                {activeOption===3 && <OrderManager />}
-                {activeOption===4 && <RevenueManager />}
+                {activeOption === 0 && <AdminHomePage />}
+                {activeOption === 1 && <ProductManager />}
+                {activeOption === 2 && <UserManager />}
+                {activeOption === 3 && <OrderManager />}
+                {activeOption === 4 && <RevenueManager />}
             </div>
         </div>
-    </> );
+    </>);
 }
 
 export default AdminPage;

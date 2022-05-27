@@ -1,6 +1,6 @@
 import axios from "axios";
 import clsx from "clsx";
-import React, {useState, useEffect, useLayoutEffect} from "react";
+import React, {useState, useLayoutEffect} from "react";
 import { Col, Container, Row } from "reactstrap";
 import {GiCancel} from 'react-icons/gi'
 import style from "../../../CSS/UserPage/userinformation.module.scss"
