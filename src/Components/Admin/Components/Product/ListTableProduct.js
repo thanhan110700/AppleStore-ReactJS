@@ -5,8 +5,8 @@ import { FaWrench } from 'react-icons/fa'
 import clsx from 'clsx';
 import ChangeProduct from './ChangeProduct';
 import axios from 'axios';
-import {useDispatch} from 'react-redux'
-import {changeStatus} from '../../../../store/actions/productActions'
+import { useDispatch } from 'react-redux'
+import { changeStatus } from '../../../../store/actions/productActions'
 function TBodyTable({ data, index }) {
     const dispatch = useDispatch()
     const handleDeleteProduct = () => {
@@ -78,7 +78,8 @@ function TBodyTable({ data, index }) {
                             key={data._id} />
                     </>
                     : null}
-                <button onClick={() => setChangeProduct(true)}
+                <button onClick={() =>
+                    setChangeProduct(true)}
                     className={clsx(styles.btn_fix, styles.btn_product)}>
                     <FaWrench className={styles.btn_icons} />
                 </button>
@@ -92,13 +93,13 @@ function TBodyTable({ data, index }) {
     </>)
 }
 function ListTableProduct({ list }) {
-    const [products,setProducts] = useState(list)
-    useLayoutEffect(()=>{
+    const [products, setProducts] = useState(list)
+    useLayoutEffect(() => {
         setProducts(list)
-    },[list])
+    }, [list])
     console.log("list", list)
     return <>
-        {list.map((data, index) => {
+        {products.map((data, index) => {
             return <TBodyTable
                 key={index}
                 data={data}

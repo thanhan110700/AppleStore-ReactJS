@@ -9,7 +9,7 @@ function UserInformaion({userData}){
 
     const [dataUser,setDataUser] = useState({})
     const [toggleChangePass,setToggleChangePass] = useState(false)
-
+    console.log(typeof birthday)
     const [message,setMessage] = useState("")
     const lc = 2
     const rc = 10
@@ -65,7 +65,11 @@ function UserInformaion({userData}){
                             <p>Tên: </p>
                         </Col>
                         <Col lg={rc}>
-                            <input type="text" value={dataUser.fullname} className={style.input_tranf}  onChange={(e)=>setDataUser({...dataUser, fullname: e.target.value})} />
+                            <input 
+                            type="text" 
+                            value={dataUser.fullname} 
+                            className={style.input_tranf}  
+                            onChange={(e)=>setDataUser({...dataUser, fullname: e.target.value})} />
                         </Col>
                         <Col lg={lc} className={style.text_input}>
                             <p>Số điện thoại:</p>
@@ -77,7 +81,11 @@ function UserInformaion({userData}){
                             <p>Ngày sinh:</p>
                         </Col>
                         <Col lg={rc}>
-                        <input type="datetime" className={style.input_tranf} value={dataUser.birthday} onChange={(e)=>{setDataUser({...dataUser, birthday: e.target.value})}} placeholder="Ngày sinh"/>
+                        <input 
+                        type="date" 
+                        className={style.input_tranf}
+                         value={dataUser.birthday && new Date(dataUser.birthday).toISOString().slice(0,10)}
+                          onChange={(e)=>{setDataUser({...dataUser, birthday: e.target.value})}} placeholder="Ngày sinh"/>
                         </Col>
                         
                         <Col lg={lc} className={style.text_input}>

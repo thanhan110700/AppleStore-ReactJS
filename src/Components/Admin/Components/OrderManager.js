@@ -14,7 +14,12 @@ function OrderManager() {
     const [endDate, setEndDate] = useState("")
     const [listOrderPreview, setListOrderPreview] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:3000/api/listOrder",
+        axios.post("http://localhost:3000/api/filterOrder",
+            {
+                date_start: startDate ? startDate : "",
+                date_end: endDate ? endDate : "",
+                status: optionFilter,
+            },
             {
                 headers: {
                     token: localStorage.getItem('token')
@@ -22,17 +27,9 @@ function OrderManager() {
             })
             .then(response => {
                 console.log("first", response.data)
-                setListOrder(response.data)
+                setListPresent(response.data)
 
-                if (optionFilter === 0) {
-                    console.log("alo")
-                    setListPresent(response.data)
-                }
-                else {
-                    setListPresent(listOrder.filter((value) => {
-                        return value.status === optionFilter
-                    }))
-                }
+             
 
             })
     }, [reset])
@@ -57,6 +54,16 @@ function OrderManager() {
         setListOrderPreview(list)
         setShowPreview(!showPreview)
     }
+
+    const onchangeStartDate = (value) => {
+        setStartDate(value)
+        setReset(reset + 1)
+    }
+    const onchangeEndDate = (value) => {
+        setEndDate(value)
+        setReset(reset + 1)
+    }
+
     function TagPreview() {
         return <div className={styles.tag_container_product}>
             <div>
@@ -99,7 +106,7 @@ function OrderManager() {
                     className={styles.input_pickdate}
                     value={startDate}
                     onChange={(e) =>
-                        setStartDate(e.target.value)}
+                        onchangeStartDate(e.target.value)}
                     placeholder="Ngày bắt đầu" />
                 Ngày kết thúc:
                 <input
@@ -107,7 +114,7 @@ function OrderManager() {
                     className={styles.input_pickdate}
                     value={endDate}
                     onChange={(e) =>
-                        setEndDate(e.target.value)}
+                        onchangeEndDate(e.target.value)}
                     placeholder="Ngày kết thúc" />
             </div>
             <table className={styles.tag_list_order}>

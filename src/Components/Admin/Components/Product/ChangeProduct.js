@@ -1,4 +1,4 @@
-import React,{useLayoutEffect, useState,memo} from 'react';
+import React,{useEffect, useState,memo} from 'react';
 import {TiDeleteOutline} from 'react-icons/ti'
 import {Container, Row, Col} from 'react-bootstrap'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -11,7 +11,7 @@ function ChangeProduct({id}) {
     const [description,setDescription] = useState("")
     const [dataProduct,setDataProduct] = useState({})
 
-    useLayoutEffect(()=>{
+    useEffect(()=>{
         axios.get('http://localhost:3000/api/iphone/'+id)
         .then(function (response) {
             // handle success
@@ -30,7 +30,7 @@ function ChangeProduct({id}) {
                     pin:data.pin,
                     listColor:data.type[0].color,
                     listType:data.type,
-                    listImage:data.images,
+                    images:data.images,
                     description:description,
                 })
             })
@@ -151,11 +151,11 @@ function ChangeProduct({id}) {
                         <RiAddCircleLine 
                             className={styles.icon_add_remove}
                             onClick={()=>{
-                                    setDataProduct({...dataProduct,listImage:[...dataProduct.listImage,dataProduct.image]})
+                                    setDataProduct({...dataProduct,images:[...dataProduct.images,dataProduct.image]})
                                     setDataProduct({...dataProduct,image:''})
                                 }}  />
                         <div className={styles.margin_top}>
-                            {dataProduct.listImage && dataProduct.listImage.map((data,index) =>{
+                            {dataProduct.images && dataProduct.images.map((data,index) =>{
                                 return ( 
                                     <div key={index} className={styles.tag_list_img}>
                                         <img src={data} alt='' className={styles.list_img}  />&nbsp;
@@ -164,7 +164,7 @@ function ChangeProduct({id}) {
                                             onClick={()=>{
                                             setDataProduct({
                                                 ...dataProduct,
-                                                listImage:dataProduct.listImage.filter(e => {
+                                                images:dataProduct.images.filter(e => {
                                                     return e!== data
                                                     })
                                                 })

@@ -5,14 +5,16 @@ import ItemCard from './General/ItemCart';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 function OrderPage() {
-    var navigate = useNavigate()
-    var listProduct = useSelector(state => state.cart.products)
-    var total = useSelector(state => state.cart.total)
-    var [address,setAddress] = useState("")
-    var [statusChangeAddress,setStatusChangeAddress] = useState("")
+    const navigate = useNavigate()
+    const listProduct = useSelector(state => state.cart.products)
+    const total = useSelector(state => state.cart.total)
+    const [address,setAddress] = useState("")
+    const [statusChangeAddress,setStatusChangeAddress] = useState("")
+    const [isBtn,setIsBtn] = useState(false)
     const token = localStorage.getItem("token")
     useEffect(()=>{
         if(token==null){
+
             setAddress("Bạn chưa đăng nhập, Đăng nhập để thanh toán")
         }
         else{
@@ -28,6 +30,7 @@ function OrderPage() {
             // handle success
                 console.log("first")
                 setAddress(response.data.address)
+                setIsBtn(true)
             })
             .catch(function (error) {
             // handle error
@@ -91,7 +94,7 @@ function OrderPage() {
                         <p>{statusChangeAddress}</p>
                         <span>Địa chỉ nhận hàng:</span>
                         <input type="text" value={address} onChange={(e)=>{setAddress(e.target.value)}} className={styles.input_address}/>
-                        <button className={styles.btn_change_address} onClick={()=>handelChangeAddress()}>Sửa</button>
+                        <button disabled={isBtn?false : true} className={styles.btn_change_address} onClick={()=>handelChangeAddress()}>Sửa</button>
                     </div>
                     <span className={styles.total}>Tổng tiền: {total.toLocaleString()} VNĐ</span>
                     <div className={styles.div_btn_order}>

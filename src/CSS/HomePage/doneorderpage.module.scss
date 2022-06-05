@@ -1,0 +1,22 @@
+.tag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    .tag_img{
+        margin: 2em 0;
+    }
+    .tag_bottom{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p{
+            color: #ffff;
+            font-size: 25px;
+        }
+        button{
+            color: #fff;
+        }
+    }
+}
+

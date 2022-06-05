@@ -1,6 +1,6 @@
 import axios from "axios";
 const initialState = {
-  loginSuccess: false
+  isLogin: sessionStorage.getItem('uid') ? localStorage.getItem('uid') : null
 }
 
 const authReducer = (state = initialState, action) =>{
@@ -39,7 +39,7 @@ const authReducer = (state = initialState, action) =>{
           .then(function (response) {
                         loginSuccess = true
                         sessionStorage.setItem("token",response.data.token)
-                        sessionStorage.setItem("userData",JSON.stringify(response.data.userdata))
+                        sessionStorage.setItem("uid",response.data.userdata._id)
                     })
           .catch(function (error) {
             console.log(error.message);
@@ -49,7 +49,7 @@ const authReducer = (state = initialState, action) =>{
         case "LOGOUT":{
           let loginSuccess = false 
           sessionStorage.removeItem("token")
-          sessionStorage.removeItem("userData")
+          sessionStorage.removeItem("uid")
           console.log("first")
           return {...state,loginSuccess}
         }

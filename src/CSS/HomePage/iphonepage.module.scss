@@ -81,6 +81,13 @@
     font-size: 0.75em;
 }
 @media only screen and (max-width:1024px) {
+    
+    .image_product{
+        border-radius: 5px 5px 0 0;
+        background-color: #ffffff;
+        padding: 5px;
+        height: 10em;
+    }
     .content{
         margin-top: 5em !important;
     }

@@ -11,6 +11,7 @@ function AdminPage() {
 
     const [activeOption, setActiveOption] = useState(0);
     let navigate = useNavigate();
+    console.log(localStorage.getItem('token'))
     return (<>
         <div className={styles.container}>
             <div className={styles.left}>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, memo } from 'react';
 import styles from '../../../../CSS/Admin/productmanager.module.scss'
 import AddProduct from './AddProduct';
 import axios from 'axios'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import ListTableProduct from './ListTableProduct';
 function IphoneAdmin() {
     const status = useSelector(state => state.product.isChange)
@@ -11,14 +11,11 @@ function IphoneAdmin() {
     useEffect(() => {
         axios.get('http://localhost:3000/api/iphone/')
             .then(function (response) {
-                // handle success
                 setListIphone(response.data)
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             })
-
     }, [status])
 
     return (<>
@@ -26,8 +23,16 @@ function IphoneAdmin() {
             <div className={styles.tag_option_container}>
                 <span className={styles.total_option}>Tổng số sản phẩm: {listIphone.length}</span>
                 <button className={styles.btn_option} onClick={() => { setAddProduct(true) }}>Thêm sản phẩm</button>
-                {addProduct ? <><button onClick={() => setAddProduct(!addProduct)} className={styles.btn_hidden_add_product}>X</button>
-                    <AddProduct /></> : null}
+                {addProduct
+                    ? <>
+                        <button onClick={() =>
+                            setAddProduct(!addProduct)}
+                            className={styles.btn_hidden_add_product}>
+                            X
+                        </button>
+                        <AddProduct />
+                    </>
+                    : null}
             </div>
             <div>
                 <table className={styles.table_product}>
